@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E03107F82020173A00B28AC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03107F72020173A00B28AC2 /* AppDelegate.swift */; };
-		E03107FA2020173A00B28AC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03107F92020173A00B28AC2 /* ViewController.swift */; };
 		E03107FD2020173A00B28AC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03107FB2020173A00B28AC2 /* Main.storyboard */; };
 		E03107FF2020173A00B28AC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E03107FE2020173A00B28AC2 /* Assets.xcassets */; };
 		E03108022020173A00B28AC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03108002020173A00B28AC2 /* LaunchScreen.storyboard */; };
 		E031080D2020173A00B28AC2 /* Flix_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031080C2020173A00B28AC2 /* Flix_appTests.swift */; };
 		E03108182020173A00B28AC2 /* Flix_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03108172020173A00B28AC2 /* Flix_appUITests.swift */; };
+		E03BB45220226E6A004DDD33 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03BB45120226E6A004DDD33 /* NowPlayingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		E03107F42020173A00B28AC2 /* Flix_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03107F72020173A00B28AC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E03107F92020173A00B28AC2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E03107FC2020173A00B28AC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E03107FE2020173A00B28AC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E03108012020173A00B28AC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		E03108132020173A00B28AC2 /* Flix_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flix_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03108172020173A00B28AC2 /* Flix_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flix_appUITests.swift; sourceTree = "<group>"; };
 		E03108192020173A00B28AC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E03BB45120226E6A004DDD33 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +97,8 @@
 		E03107F62020173A00B28AC2 /* Flix_app */ = {
 			isa = PBXGroup;
 			children = (
+				E03BB45120226E6A004DDD33 /* NowPlayingViewController.swift */,
 				E03107F72020173A00B28AC2 /* AppDelegate.swift */,
-				E03107F92020173A00B28AC2 /* ViewController.swift */,
 				E03107FB2020173A00B28AC2 /* Main.storyboard */,
 				E03107FE2020173A00B28AC2 /* Assets.xcassets */,
 				E03108002020173A00B28AC2 /* LaunchScreen.storyboard */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E03107FA2020173A00B28AC2 /* ViewController.swift in Sources */,
+				E03BB45220226E6A004DDD33 /* NowPlayingViewController.swift in Sources */,
 				E03107F82020173A00B28AC2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L84MJ8VB5P;
 				INFOPLIST_FILE = Flix_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Morgan-State.Flix-app";
@@ -441,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L84MJ8VB5P;
 				INFOPLIST_FILE = Flix_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Morgan-State.Flix-app";
