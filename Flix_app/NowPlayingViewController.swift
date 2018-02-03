@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NowPlayingViewControlmler: UIViewController {
+class NowPlayingViewControler: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,22 +22,17 @@ class NowPlayingViewControlmler: UIViewController {
                 print(error.localizedDescription)
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                print(dataDictionary)
-                
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
+                let movies = dataDictionary["results"] as! [[String: Any]]
+                for movie in movies {
+                    let title = movie["title"] as! String
+                    print(title )
+                }
                 
             }
         }
         task.resume()
     }
 
-    
-    
-    
-    
-    
      override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
