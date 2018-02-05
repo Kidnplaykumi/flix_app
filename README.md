@@ -48,7 +48,7 @@ I had challenges with User story 2 and User story 4
 
 ## License
 
-    Copyright [2018] [Elijah Kumi]
+    Copyright 2018 Elijah Kumi
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
