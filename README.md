@@ -13,7 +13,7 @@ The following **required** user stories are complete:
 - [X] User sees app icon in home screen and styled launch screen (+1pt)
 - [X] User can scroll through a list of movies currently playing in theaters from The Movie DB API (+5pt)
 - [X] User can "Pull to refresh" the movie list (+2pt)
-- [X] User sees a loading state while waiting for the movies to load (+2pt)
+- [] User sees a loading state while waiting for the movies to load (+2pt)
 
 The following **optional** user stories are implemented:
 
@@ -31,23 +31,24 @@ The following **additional** user stories are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1.How to show more information on the app like a rating for each movie
+
 2. Understnding where to put the UIActivity indicator 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/uhtcWyl.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-I had challenges with all of User story 2 and User story 4
+I had challenges with User story 2 and User story 4
 
 ## License
 
-    Copyright [2018] [Elijah Kumi]
+    Copyright 2018 Elijah Kumi
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
