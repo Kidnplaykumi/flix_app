@@ -24,6 +24,7 @@ class NowPlayingViewControler: UIViewController, UITableViewDataSource {
         tableView.insertSubview( refreshControl, at: 0)
         tableView.dataSource = self
         self.tableView.rowHeight = 200
+        activityIndicator.startAnimating()
         fetchMovies()
     }
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl)  {
@@ -31,7 +32,7 @@ class NowPlayingViewControler: UIViewController, UITableViewDataSource {
         
     }
     
-    func fetchMovies() {
+    func fetchMovies(){
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -45,15 +46,17 @@ class NowPlayingViewControler: UIViewController, UITableViewDataSource {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 let movies = dataDictionary["results"] as! [[String: Any]]
                 self.movies = movies
+                self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
         }
-        task.resume()
+    
+    task.resume()
     }
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        self.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
@@ -62,7 +65,7 @@ class NowPlayingViewControler: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as!                            TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! TableViewCell
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
@@ -78,4 +81,5 @@ class NowPlayingViewControler: UIViewController, UITableViewDataSource {
         
         return cell
     }
+
 }
