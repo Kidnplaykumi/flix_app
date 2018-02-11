@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var backDropImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet var titleLabel: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
