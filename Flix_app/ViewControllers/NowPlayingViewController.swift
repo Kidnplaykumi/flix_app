@@ -65,21 +65,21 @@ class NowPlayingViewControler: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! TableViewCell
-        let movie = movies[indexPath.row]
-        let title = movie["title"] as! String
-        let overview = movie["overview"] as! String
-        cell.titleLabel.text = title
-        cell.overviewLabel.text = overview
         
-        let posterPathString = movie["poster_path"] as! String
-        let baseURLString = "https://image.tmdb.org/t/p/w500"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! Movie
         
-        let posterURL = URL(string: baseURLString + posterPathString)!
-        cell.posterimageView.af_setImage(withURL: posterURL)
-        
+        cell.movie = movie[indexPath.row]
         
         return cell
+    }
+    
+    func getMovies() {
+        MovieApiManager().nowPlayingMovies { (movies, error) in
+            if let movies = movies {
+                self.movies = movies
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,7 +87,7 @@ class NowPlayingViewControler: UIViewController, UITableViewDataSource {
         if let indexPath = tableView.indexPath(for: cell){
             let movie =  movies[indexPath.row]
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.movie = movie  
+            detailViewController.movie = movie
         }
     }
 

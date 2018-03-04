@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var releseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
-    var movie: [String: Any]?
+    var movie: [Movie] = []
     
 
     override func viewDidLoad() {
@@ -41,6 +41,15 @@ class DetailViewController: UIViewController {
             
             let posterPathURL = URL(string: baseURLString + posterPathString)!
             posterImageView.af_setImage(withURL: posterPathURL)
+            
+            let dataDictionary = try! JSONSerialization.jsonObject(with: Data, options: []) as! [String: Any]
+            let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
+            
+            self.movie = []
+            for dictionary in movieDictionaries {
+                let movie = Movie(dictionary: dictionary)
+                self.movies.append(movie)
+            }
             
             
         }
