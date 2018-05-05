@@ -8,11 +8,6 @@
 
 import UIKit
 
- enum MovieKeys{
-    static let title = "title"
-    static let backdropPath = "backdrop_path"
-    static let posterPath = "poster_path"
- }
 
 class DetailViewController: UIViewController {
     
@@ -22,36 +17,24 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var releseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
-    var movie: [Movie] = []
+     var movie: [String: Any]?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let movie = movie {
-            titleLabel.text = movie[MovieKeys.title] as? String
-            releseDateLabel.text = movie["relese_date"] as? String
+        if let movie = movie{
+            titleLabel.text = movie["title"] as? String
+            releseDateLabel.text = movie["release_date"] as? String
             overviewLabel.text = movie["overview"] as? String
-            let backdropPathString =  movie[MovieKeys.backdropPath] as! String
-            let posterPathString = movie[MovieKeys.posterPath] as! String
+            let backdropPathString = movie["backdrop_path"] as! String
+            let posterPathString = movie["poster_path"] as! String
             let baseURLString = "https://image.tmdb.org/t/p/w500"
             
-            let backdropURL = URL(string: baseURLString +  backdropPathString)!
+            let backdropURL = URL(string: baseURLString + backdropPathString)!
             backDropImageView.af_setImage(withURL: backdropURL)
-            
             let posterPathURL = URL(string: baseURLString + posterPathString)!
             posterImageView.af_setImage(withURL: posterPathURL)
-            
-            let dataDictionary = try! JSONSerialization.jsonObject(with: Data, options: []) as! [String: Any]
-            let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
-            
-            self.movie = []
-            for dictionary in movieDictionaries {
-                let movie = Movie(dictionary: dictionary)
-                self.movies.append(movie)
-            }
-            
-            
         }
     }
 
